@@ -40,10 +40,6 @@ function lineClass(kind: Line['kind']): string {
   return `terminal__line terminal__line--${kind ?? 'out'}`
 }
 
-function prefersReducedMotion(): boolean {
-  return window.matchMedia('(prefers-reduced-motion: reduce)').matches
-}
-
 export default function Terminal() {
   const [entries, setEntries] = useState<Entry[]>(initialEntries)
   const [input, setInput] = useState('')
@@ -86,7 +82,7 @@ export default function Terminal() {
 
     if (result.action?.type === 'goto') {
       document.getElementById(result.action.section)?.scrollIntoView({
-        behavior: prefersReducedMotion() ? 'auto' : 'smooth',
+        behavior: 'smooth',
         block: 'start',
       })
     } else if (result.action?.type === 'open') {

@@ -15,6 +15,14 @@ const context = await browser.newContext({
   viewport: { width: 1440, height: 900 },
   permissions: ['clipboard-read', 'clipboard-write'],
 })
+// Pula a introdução: aqui o alvo são as interações da página
+await context.addInitScript(() => {
+  try {
+    sessionStorage.setItem('joaowehner:intro-seen', '1')
+  } catch {
+    /* sem storage */
+  }
+})
 const page = await context.newPage()
 const consoleErrors = []
 page.on('console', (m) => m.type() === 'error' && consoleErrors.push(m.text()))

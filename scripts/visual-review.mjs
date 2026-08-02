@@ -27,6 +27,14 @@ const overflow = []
 
 for (const vp of viewports) {
   const page = await browser.newPage({ viewport: { width: vp.width, height: vp.height } })
+  // Pula a introdução: aqui o alvo é a página em si (intro tem suite própria)
+  await page.addInitScript(() => {
+    try {
+      sessionStorage.setItem('joaowehner:intro-seen', '1')
+    } catch {
+      /* sem storage */
+    }
+  })
   page.on('console', (msg) => {
     if (msg.type() === 'error') consoleErrors.push(`[${vp.name}] ${msg.text()}`)
   })

@@ -5,7 +5,7 @@
 | Etapa | Ferramenta | Efeito verificável no projeto |
 |---|---|---|
 | Descoberta | pesquisa dos perfis públicos (LinkedIn, GitHub, Instagram) | headline, cargo, localização e projetos extraídos das fontes reais — zero conteúdo inventado |
-| Sistema visual | princípios de motion design | tokens `--t-fast: 140ms`/`--t-base: 240ms` + easing padrão; transições só para feedback de estado (hover, cópia, aba ativa); `prefers-reduced-motion` global |
+| Sistema visual | princípios de motion design | tokens `--t-fast: 140ms`/`--t-base: 240ms` + easing padrão; transições só para feedback de estado (hover, cópia, aba ativa) |
 | Revisão visual (ciclos 1–3) | Playwright — `visual-review.mjs` | screenshots nas 9 resoluções + detector automático de overflow |
 | Validação funcional | Playwright — `interaction-review.mjs` | 17 testes: terminal, autocomplete, histórico, clear, navegação, menu mobile, clipboard, links externos |
 | Acessibilidade | axe-core — `a11y-review.mjs` | 1 violação encontrada (contraste `--text-3`) e corrigida; revalidado: 0 violações |
@@ -121,6 +121,45 @@ e datas nos projetos (nº de origens de leads, ano de lançamento).
 Validação final: lint ✓ · typecheck ✓ · 12 testes ✓ · build ✓ · 17/17
 interações ✓ · axe 0 violações ✓ · zero overflow e console limpo nas 9
 resoluções ✓ · **Lighthouse 99 · 100 · 100 · 100**.
+
+## Introdução cinematográfica ("ssh joaowehner@web")
+
+Sequência de boot autoral exibida uma vez por sessão, antes da primeira dobra.
+Personalidade **premium**: easing `cubic-bezier(0.4,0,0.2,1)` (o `--ease` do
+site), zero overshoot, só transform/opacity.
+
+**Narrativa em cinco atos (~5,7s, pulável a qualquer momento):**
+
+1. *Vazio* (0–0,5s) — cursor de bloco piscando sozinho no escuro.
+2. *Comando* (0,5–1,8s) — `❯ ssh joaowehner@web` digita sozinho (70ms/char),
+   ecoando o título real da janela do terminal do site.
+3. *Resposta* (2,1–3,1s) — três linhas de verificação com leader pontilhado e
+   `ok` verde chegando 150ms após cada linha (stagger 320ms); o glow ambiente
+   floresce em 2s — **o mesmo gradiente do `body::before` do site**, para a
+   costura da saída ser invisível.
+4. *Revelação* (3,4–4,6s) — nome sobe por clip reveal (600ms), papel em mono
+   verde 200ms depois; prompt e status esmaecem a 35% (staging).
+5. *Saída* (5,0–5,7s) — cortina acelera (`0.3,0,1,1`); o hero sobe ao encontro
+   em stagger de 60ms por elemento (terminal 240ms depois).
+
+**Decisões de craft registradas:**
+- Alturas da identidade reservadas desde o 1º frame — o palco nunca salta
+  (defeito de ~64px detectado em captura e corrigido).
+- Glow com os mesmos alphas do site (0,05/0,04) — versões mais fortes criavam
+  banding visível em fundo escuro.
+- Sem autofoco no botão "pular" — o anel de foco poluía o ato contemplativo;
+  Esc/Enter funcionam via listener global.
+- Skip: botão `pular [esc]` visível a partir de 600ms, saída rápida de 320ms.
+- Gating por `sessionStorage` (uma vez por sessão); `main` fica `inert` sob a
+  intro; scroll travado durante a exibição.
+- **Decisão do dono (02/08/2026)**: `prefers-reduced-motion` removido de todo o
+  site — animações sempre ativas. Registrado como escolha consciente do João,
+  contra a recomendação WCAG 2.3.3.
+
+**Validação**: suite própria (`scripts/intro-review.mjs`, 9 cenários — fases,
+skip por botão e Esc, gating de sessão, hero após handoff, erros de página) +
+frames capturados de cada ato. Lighthouse com a intro ativa: 99·100·100·100,
+LCP 1,7s, CLS 0. Custo no bundle: ~1 kB gzip.
 
 ## Critérios de aprovação final
 

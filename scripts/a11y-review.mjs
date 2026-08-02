@@ -12,6 +12,14 @@ for (const [name, viewport] of [
   ['mobile', { width: 390, height: 844 }],
 ]) {
   const context = await browser.newContext({ viewport })
+  // Pula a introdução: a auditoria cobre a página (intro tem suite própria)
+  await context.addInitScript(() => {
+    try {
+      sessionStorage.setItem('joaowehner:intro-seen', '1')
+    } catch {
+      /* sem storage */
+    }
+  })
   const page = await context.newPage()
   await page.goto(url, { waitUntil: 'networkidle' })
   const results = await new AxeBuilder({ page }).analyze()
