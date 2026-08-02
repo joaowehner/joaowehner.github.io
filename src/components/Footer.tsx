@@ -13,7 +13,17 @@ export default function Footer() {
           </span>
           {profile.brand} — {year}
         </p>
-        <p className="footer__item footer__item--muted">React · TypeScript · Vite · CSS autoral</p>
+        <p className="footer__item footer__item--muted">
+          React · TypeScript · Vite · CSS autoral
+          {profile.sourceUrl && (
+            <>
+              {' · '}
+              <a href={profile.sourceUrl} target="_blank" rel="noopener noreferrer">
+                ver código ↗
+              </a>
+            </>
+          )}
+        </p>
         <p className="footer__item footer__item--muted">feito em {profile.location}</p>
       </div>
     </footer>

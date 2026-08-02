@@ -1,17 +1,16 @@
 # Processo de design
 
-## Skills e ferramentas aplicadas (com efeito verificável)
+## Método e ferramentas de validação
 
-| Skill/Ferramenta | Fase | Efeito concreto no projeto |
+| Etapa | Ferramenta | Efeito verificável no projeto |
 |---|---|---|
-| caveman (lite) | toda a sessão | comunicação enxuta; economia de tokens direcionada a pesquisa/revisão |
-| Pesquisa de perfis (WebFetch/WebSearch + browser autenticado) | descoberta | headline, cargo, localização e projetos extraídos de LinkedIn/Instagram/GitHub reais — zero conteúdo inventado |
-| motion-design | sistema visual | tokens `--t-fast: 140ms`/`--t-base: 240ms` + easing padrão; transições só para feedback de estado (hover, cópia, aba ativa); `prefers-reduced-motion` global |
-| Playwright (visual-review.mjs) | revisão ciclos 1–3 | screenshots nas 9 resoluções + detector automático de overflow |
-| Playwright (interaction-review.mjs) | validação | 17 testes: terminal, autocomplete, histórico, clear, navegação, menu mobile, clipboard, links externos |
-| axe-core | acessibilidade | 1 violação encontrada (contraste `--text-3`) e corrigida; revalidado: 0 violações |
-| Vitest | qualidade | 12 testes da lógica pura do terminal |
-| Workflow multi-agente | conselho de revisão | 6 revisores independentes (Product/UI/UX/Frontend/A11y/Branding) + verificação adversarial dos achados |
+| Descoberta | pesquisa dos perfis públicos (LinkedIn, GitHub, Instagram) | headline, cargo, localização e projetos extraídos das fontes reais — zero conteúdo inventado |
+| Sistema visual | princípios de motion design | tokens `--t-fast: 140ms`/`--t-base: 240ms` + easing padrão; transições só para feedback de estado (hover, cópia, aba ativa); `prefers-reduced-motion` global |
+| Revisão visual (ciclos 1–3) | Playwright — `visual-review.mjs` | screenshots nas 9 resoluções + detector automático de overflow |
+| Validação funcional | Playwright — `interaction-review.mjs` | 17 testes: terminal, autocomplete, histórico, clear, navegação, menu mobile, clipboard, links externos |
+| Acessibilidade | axe-core — `a11y-review.mjs` | 1 violação encontrada (contraste `--text-3`) e corrigida; revalidado: 0 violações |
+| Testes unitários | Vitest | 12 testes da lógica pura do terminal |
+| Revisão final | conselho de revisão em 6 perspectivas (Product, UI, UX, Frontend, Acessibilidade, Marca) | achados verificados um a um contra o código e as capturas antes de virar correção |
 
 ## Direção visual
 
@@ -79,8 +78,9 @@ Problemas encontrados e corrigidos:
 
 ### Ciclo 3 — produção (screenshots `c3`)
 
-Conselho multi-agente: 36 achados brutos → 26 confirmados por verificação
-adversarial + 8 baixos. Todos os aplicáveis corrigidos:
+Conselho de revisão em 6 perspectivas: 36 achados brutos → 26 confirmados por
+verificação adversarial contra o código e as capturas + 8 de severidade baixa.
+Todos os aplicáveis corrigidos:
 
 **Conversão e conteúdo**
 - Hero sem caminho para contato → CTA "Vamos conversar" (#contato) como

@@ -3,6 +3,13 @@
   "private": true,
   "version": "1.0.0",
   "type": "module",
+  "description": "Site pessoal de João Wehner — portfólio, apresentação profissional e central de links em estética de terminal.",
+  "author": "joaowehner (João Guilherme Wehner Ricartes) <46334903+joaowehner@users.noreply.github.com>",
+  "homepage": "https://joaowehner.github.io/",
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/joaowehner/joaowehner.github.io.git"
+  },
   "scripts": {
     "dev": "vite",
     "build": "tsc -b && vite build",

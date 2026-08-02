@@ -71,7 +71,7 @@ export const profile: Profile = {
   about: [
     'Sou desenvolvedor full-stack e sócio da TSW Soluções Inteligentes, consultoria de negócios imobiliários e de crédito em Campo Grande. Ser sócio muda o jeito de programar: cada decisão técnica aqui também é uma decisão de negócio.',
     'Na prática, isso significa dois sites em produção, uma integração que centraliza a captação de leads e fluxos de atendimento que estou automatizando com IA — tudo mantido de ponta a ponta por mim, do layout ao deploy.',
-    'Este site é parte do trabalho: construído do zero com React e TypeScript, sem template.',
+    'Este site é parte do trabalho: construído do zero com React e TypeScript, sem template, com o código aberto no GitHub.',
   ],
   email: 'joaowehner@gmail.com',
   social: [
@@ -160,7 +160,8 @@ export const profile: Profile = {
       role: 'Design e desenvolvimento completos',
       tech: ['React', 'TypeScript', 'Vite', 'GitHub Actions'],
       status: 'em evolução',
-      footerNote: 'você está navegando nele agora',
+      url: 'https://github.com/joaowehner/joaowehner.github.io',
+      urlLabel: 'código no GitHub',
     },
   ],
   stack: [
@@ -184,4 +185,5 @@ export const profile: Profile = {
     },
   ],
   siteUrl: 'https://joaowehner.github.io/',
+  sourceUrl: 'https://github.com/joaowehner/joaowehner.github.io',
 }
