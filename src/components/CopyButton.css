@@ -1,0 +1,35 @@
+.copy-button {
+  display: inline-grid;
+  font-family: var(--font-mono);
+  font-size: var(--text-sm);
+  color: var(--text-2);
+  padding: var(--space-2) var(--space-4);
+  border: 1px solid var(--line);
+  border-radius: var(--radius-sm);
+  transition:
+    color var(--t-fast),
+    border-color var(--t-fast),
+    background var(--t-fast);
+}
+
+.copy-button__face {
+  grid-area: 1 / 1;
+  justify-self: center;
+  white-space: nowrap;
+}
+
+.copy-button__face[aria-hidden='true'] {
+  visibility: hidden;
+}
+
+.copy-button:hover {
+  color: var(--accent);
+  border-color: var(--accent);
+  background: var(--accent-tint);
+}
+
+.copy-button--copied {
+  color: var(--accent);
+  border-color: var(--accent);
+  background: var(--accent-tint);
+}

@@ -1,0 +1,170 @@
+.terminal {
+  display: flex;
+  flex-direction: column;
+  background: var(--surface);
+  border: 1px solid var(--line);
+  border-radius: var(--radius-lg);
+  box-shadow: var(--shadow-window);
+  overflow: hidden;
+  font-family: var(--font-mono);
+  font-size: var(--text-sm);
+  cursor: text;
+}
+
+.terminal:focus-within {
+  border-color: var(--line-strong);
+}
+
+.terminal__bar {
+  display: flex;
+  align-items: center;
+  gap: var(--space-2);
+  padding: var(--space-3) var(--space-4);
+  background: var(--bg-raised);
+  border-bottom: 1px solid var(--line);
+}
+
+.terminal__dot {
+  width: 11px;
+  height: 11px;
+  border-radius: 50%;
+  opacity: 0.85;
+}
+
+.terminal__dot--red {
+  background: var(--dot-red);
+}
+.terminal__dot--yellow {
+  background: var(--dot-yellow);
+}
+.terminal__dot--green {
+  background: var(--dot-green);
+}
+
+.terminal__title {
+  margin-inline: auto;
+  color: var(--text-3);
+  font-size: var(--text-xs);
+  letter-spacing: 0.02em;
+  transform: translateX(-16px); /* compensa os pontos para centralizar de fato */
+}
+
+.terminal__output {
+  position: relative;
+  flex: 1;
+  min-height: 13rem;
+  max-height: 21rem;
+  overflow-y: auto;
+  padding: var(--space-4);
+  display: flex;
+  flex-direction: column;
+  gap: var(--space-3);
+  overscroll-behavior: contain;
+}
+
+.terminal__entry {
+  display: grid;
+  gap: 2px;
+}
+
+.terminal__echo {
+  color: var(--text-1);
+  font-weight: 600;
+}
+
+.terminal__echo span {
+  color: var(--accent);
+}
+
+.terminal__line {
+  white-space: pre-wrap;
+  word-break: break-word;
+  color: var(--text-2);
+}
+
+.terminal__line--title {
+  color: var(--accent);
+  font-weight: 600;
+}
+
+.terminal__line--accent {
+  color: var(--accent);
+}
+
+.terminal__line--muted {
+  color: var(--text-3);
+}
+
+.terminal__line--error {
+  color: var(--danger);
+}
+
+.terminal__input-row {
+  display: flex;
+  align-items: center;
+  gap: var(--space-2);
+  padding: var(--space-3) var(--space-4);
+  border-top: 1px solid var(--line);
+  background: var(--bg-raised);
+}
+
+.terminal__prompt {
+  color: var(--accent);
+  font-weight: 700;
+}
+
+.terminal__input {
+  flex: 1;
+  background: transparent;
+  border: none;
+  color: var(--text-1);
+  font: inherit;
+  caret-color: var(--accent);
+}
+
+.terminal__input:focus {
+  outline: none;
+}
+
+.terminal__quick {
+  display: flex;
+  flex-wrap: wrap;
+  gap: var(--space-2);
+  padding: var(--space-3) var(--space-4);
+  background: var(--bg-raised);
+  border-top: 1px solid var(--line);
+}
+
+.terminal__chip {
+  font-family: var(--font-mono);
+  font-size: var(--text-xs);
+  color: var(--text-2);
+  padding: var(--space-1) var(--space-3);
+  border: 1px solid var(--line);
+  border-radius: 999px;
+  transition:
+    color var(--t-fast),
+    border-color var(--t-fast),
+    background var(--t-fast);
+}
+
+.terminal__chip:hover {
+  color: var(--accent);
+  border-color: var(--accent);
+  background: var(--accent-tint);
+}
+
+/* A resposta do help (14 linhas) cabe inteira em telas maiores */
+@media (min-width: 1280px) {
+  .terminal__output {
+    max-height: 26rem;
+  }
+}
+
+/* Alvos de toque ≥ 44px onde o dedo é o ponteiro */
+@media (pointer: coarse) {
+  .terminal__chip {
+    min-height: 44px;
+    padding-inline: var(--space-4);
+  }
+}
