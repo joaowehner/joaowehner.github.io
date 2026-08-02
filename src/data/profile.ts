@@ -48,6 +48,8 @@ export interface Profile {
   company: { name: string; url: string }
   about: string[]
   email: string
+  /** Link wa.me completo; omita para esconder o CTA de WhatsApp */
+  whatsappUrl?: string
   social: SocialLink[]
   projects: Project[]
   stack: StackGroup[]
@@ -58,22 +60,23 @@ export interface Profile {
 export const profile: Profile = {
   brand: 'joaowehner',
   fullName: 'João Guilherme Wehner Ricartes',
-  displayName: 'João Wehner',
-  role: 'Desenvolvedor Full-Stack',
-  headline: 'Construo tecnologia para os mercados imobiliário e de crédito.',
+  displayName: 'João Guilherme',
+  role: 'Desenvolvedor Full-Stack e CEO',
+  headline: 'Construo e ofereço soluções tecnológicas para o mercado imobiliário.',
   subheadline:
-    'Sócio na TSW Soluções Inteligentes: os sites, as integrações e a automação de captação de leads da empresa passam pelas minhas mãos — do código ao deploy, com React, TypeScript e Node no dia a dia.',
+    'Sócio e Co-CEO no Grupo Wehner e na TSW Soluções Inteligentes. Lidero a operação e a tecnologia das empresas, cuidando dos sites, das integrações e da automação de leads, do código ao deploy com React, TypeScript e Node.',
   location: 'Campo Grande · MS, Brasil',
   company: {
     name: 'TSW Soluções Inteligentes',
     url: 'https://tswsolucoesinteligentes.com.br',
   },
   about: [
-    'Sou desenvolvedor full-stack e sócio da TSW Soluções Inteligentes, consultoria de negócios imobiliários e de crédito em Campo Grande. Ser sócio muda o jeito de programar: cada decisão técnica aqui também é uma decisão de negócio.',
-    'Na prática, isso significa dois sites em produção, uma integração que centraliza a captação de leads e fluxos de atendimento que estou automatizando com IA — tudo mantido de ponta a ponta por mim, do layout ao deploy.',
-    'Este site é parte do trabalho: construído do zero com React e TypeScript, sem template, com o código aberto no GitHub.',
+    'Sou desenvolvedor full-stack e Co-CEO na TSW Soluções Inteligentes e no Grupo Wehner, ecossistema de negócios e tecnologia imobiliária em Campo Grande. Liderar a operação muda o jeito de programar: cada decisão técnica aqui também é uma decisão de negócio.',
+    'Na prática, isso se traduz em sites em produção, integrações que centralizam a captação de leads e fluxos de atendimento automatizados com IA, tudo mantido de ponta a ponta por mim, do layout ao deploy.',
+    'Este site é parte desse ecossistema: construído do zero com React e TypeScript, sem template e com o código aberto no GitHub.',
   ],
   email: 'joaowehner@gmail.com',
+  whatsappUrl: 'https://wa.me/5567998575834',
   social: [
     {
       id: 'github',
@@ -119,7 +122,7 @@ export const profile: Profile = {
       tagline: 'O site da consultoria da qual sou sócio',
       description:
         'Presença digital da TSW: serviços, metodologia e captação de clientes para consultoria de negócios imobiliários, crédito e curadoria de investimentos.',
-      role: 'Desenvolvimento completo — do layout ao deploy',
+      role: 'Desenvolvimento completo, do layout ao deploy',
       tech: ['HTML', 'CSS', 'JavaScript', 'Hostinger'],
       status: 'em produção',
       url: 'https://tswsolucoesinteligentes.com.br',
@@ -131,24 +134,23 @@ export const profile: Profile = {
       name: 'TSW Leads API Bridge',
       tagline: 'Captação de leads sem distribuição manual',
       description:
-        'Integração em Node que centraliza leads do site, de formulários e de campanhas e os entrega direto ao fluxo comercial da TSW — o time recebe, ninguém redistribui na mão.',
+        'Integração em Node que centraliza leads do site, de formulários e de campanhas e os entrega direto ao fluxo comercial da TSW. O time recebe, ninguém redistribui na mão.',
       role: 'Arquitetura e implementação',
       tech: ['Node.js', 'JavaScript', 'APIs REST'],
       status: 'privado',
-      footerNote: 'código privado — detalhes sob conversa',
+      footerNote: 'código privado, detalhes sob conversa',
     },
     {
-      id: 'tsw-decoracao',
-      path: '~/projects/tsw-decoracao',
-      name: 'TSW Decoração',
-      tagline: 'Decoração estratégica e staging para valorização de imóveis',
+      id: 'tsw-crm',
+      path: '~/projects/tsw-crm',
+      name: 'TSW CRM',
+      tagline: 'CRM completo para a operação imobiliária da TSW',
       description:
-        'Site da vertical de decoração da TSW: projetos de interiores, curadoria de mobiliário e posicionamento de imóveis para venda, locação e temporada.',
-      role: 'Desenvolvimento completo — design, conteúdo e deploy',
-      tech: ['HTML', 'CSS', 'JavaScript', 'Vercel'],
+        'Sistema de gestão comercial sob medida para o Grupo Wehner: pipeline de vendas, acompanhamento de clientes, integração com captação de leads e automações internas.',
+      role: 'Arquitetura, desenvolvimento e produto',
+      tech: ['React', 'TypeScript', 'Node.js', 'Supabase'],
       status: 'em evolução',
-      url: 'https://tsw-decoracao-preview.vercel.app',
-      urlLabel: 'tsw-decoracao-preview.vercel.app',
+      footerNote: 'em desenvolvimento',
     },
     {
       id: 'joaowehner-site',
@@ -159,7 +161,7 @@ export const profile: Profile = {
         'Página única em React 19 + TypeScript strict, CSS autoral com design tokens e terminal interativo testado. Lighthouse 99·100·100·100 e deploy contínuo no GitHub Pages.',
       role: 'Design e desenvolvimento completos',
       tech: ['React', 'TypeScript', 'Vite', 'GitHub Actions'],
-      status: 'em evolução',
+      status: 'em produção',
       url: 'https://github.com/joaowehner/joaowehner.github.io',
       urlLabel: 'código no GitHub',
     },
@@ -169,13 +171,13 @@ export const profile: Profile = {
       id: 'principal',
       title: 'principal',
       note: 'uso diário',
-      items: ['TypeScript', 'React', 'Next.js', 'Node.js', 'Supabase'],
+      items: ['HTML & CSS', 'JavaScript', 'APIs REST', 'Git & GitHub', 'Vercel', 'Hostinger', 'Supabase'],
     },
     {
       id: 'pratica',
       title: 'experiência prática',
       note: 'ferramentas do trabalho real',
-      items: ['HTML & CSS', 'JavaScript', 'APIs REST', 'Git & GitHub', 'Vercel', 'Hostinger'],
+      items: ['TypeScript', 'React', 'Next.js', 'Node.js'],
     },
     {
       id: 'explorando',

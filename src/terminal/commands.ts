@@ -63,7 +63,7 @@ export const commands: TerminalCommand[] = [
     run: (p) => ({
       lines: [
         { text: p.displayName, kind: 'title' },
-        { text: `${p.role} · sócio na ${p.company.name}`, kind: 'out' },
+        { text: `${p.role} · Co-CEO no Grupo Wehner e na ${p.company.name}`, kind: 'out' },
         { text: p.location, kind: 'muted' },
       ],
     }),
@@ -124,6 +124,7 @@ export const commands: TerminalCommand[] = [
     description: 'formas de contato',
     run: (p) => ({
       lines: [
+        ...(p.whatsappUrl ? [{ text: 'whatsapp: link na seção contato', kind: 'out' as LineKind }] : []),
         { text: `e-mail: ${p.email}`, kind: 'out' },
         { text: 'navegando até #contato…', kind: 'muted' },
       ],

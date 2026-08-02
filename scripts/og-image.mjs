@@ -59,9 +59,9 @@ const html = `<!doctype html>
     </div>
     <div class="body">
       <div class="prompt"><span>~ $</span> whoami</div>
-      <h1>João Wehner</h1>
-      <div class="role">Desenvolvedor Full-Stack</div>
-      <div class="sub">Construo tecnologia para os mercados imobiliário e de crédito.</div>
+      <h1>João Guilherme</h1>
+      <div class="role">Desenvolvedor Full-Stack e CEO</div>
+      <div class="sub">Construo e ofereço soluções tecnológicas para o mercado imobiliário.</div>
       <div class="foot"><b>github.com/joaowehner</b><b>React · TypeScript · Node · Supabase</b></div>
     </div>
   </div>

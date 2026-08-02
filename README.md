@@ -1,6 +1,6 @@
 # joaowehner — site pessoal
 
-Mini-site pessoal de João Wehner: portfólio, apresentação profissional, central de
+Mini-site pessoal de João Guilherme: portfólio, apresentação profissional, central de
 links e cartão de visitas digital em estética de terminal editorial.
 
 - **Referência visual**: interpretação autoral inspirada em <https://superdesign.dev/library/terminal>
@@ -85,7 +85,7 @@ Para publicar como site de projeto (`joaowehner.github.io/<repo>`), defina
 ### Checklist antes de publicar
 
 - [ ] Confirmar publicação do e-mail pessoal no site
-- [ ] Validar textos dos 3 projetos TSW
+- [ ] Validar textos dos 4 projetos TSW
 - [ ] Conferir `siteUrl` em `profile.ts` + canonical/OG no `index.html`
 - [ ] `npm run lint && npm run typecheck && npm test && npm run build` verdes
 - [ ] Testar `npm run preview` localmente

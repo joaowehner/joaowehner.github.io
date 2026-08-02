@@ -14,7 +14,7 @@ uma demonstração de trabalho.
 
 ## Posicionamento
 
-> Desenvolvedor Full-Stack e sócio na TSW Soluções Inteligentes —
+> Desenvolvedor Full-Stack e Co-CEO no Grupo Wehner e na TSW Soluções Inteligentes —
 > constrói tecnologia para os mercados imobiliário e de crédito.
 
 O posicionamento veio da **headline do próprio LinkedIn** do João, que é específica e
@@ -31,12 +31,12 @@ real (imobiliário + crédito). Essa concretude é o diferencial — nada de fra
 
 | Elemento | Texto |
 |---|---|
-| Headline (H1 visual) | João Wehner — Desenvolvedor Full-Stack |
-| Frase de impacto | "Construo tecnologia para os mercados imobiliário e de crédito." |
-| Subheadline | Sócio na TSW Soluções Inteligentes. React, Next.js, TypeScript, Node e Supabase — com sites, integrações e automação de leads rodando em produção. |
+| Headline (H1 visual) | João Guilherme — Desenvolvedor Full-Stack |
+| Frase de impacto | "Construo e ofereço soluções tecnológicas para o mercado imobiliário." |
+| Subheadline | Sócio e Co-CEO no Grupo Wehner e na TSW Soluções Inteligentes. Lidero a operação e a tecnologia das empresas, cuidando dos sites, das integrações e da automação de leads, do código ao deploy com React, TypeScript e Node. |
 | CTA primário | Ver projetos |
 | CTA secundário | GitHub ↗ / LinkedIn ↗ |
-| CTA de contato | enviar e-mail / copiar e-mail |
+| CTA de contato | WhatsApp / enviar e-mail / copiar e-mail |
 
 ## Tom
 
@@ -47,7 +47,7 @@ Proibidos: "apaixonado por tecnologia", "transformando ideias em realidade" e af
 
 1. Hero (identidade + posicionamento + terminal)
 2. Sobre (contexto: quem, onde, o quê)
-3. Projetos (prova: 3 projetos reais da TSW)
+3. Projetos (prova: 4 projetos reais da TSW/Grupo Wehner)
 4. Stack (competências em 3 níveis honestos: principal / prática / explorando)
 5. Links (função link-in-bio)
 6. Contato (conversão)
@@ -60,8 +60,8 @@ Proibidos: "apaixonado por tecnologia", "transformando ideias em realidade" e af
 | Marca "joaowehner" | resposta do João | confirmada |
 | Headline/posicionamento | LinkedIn (perfil próprio) | confirmada |
 | Localização Campo Grande·MS | LinkedIn + Instagram | confirmada |
-| Sócio na TSW | LinkedIn | confirmada |
-| Projetos TSW (site, decoração, leads bridge) | repositórios GitHub + deploys públicos | confirmada (detalhes a validar com João) |
+| Sócio e Co-CEO | LinkedIn | confirmada |
+| Projetos TSW (site, leads bridge, CRM) | repositórios GitHub + deploys públicos | confirmada (detalhes a validar com João) |
 | Stack principal | headline do LinkedIn | confirmada |
 | "IA aplicada" | Instagram ("Consultor de IA Júnior") | provável — divergência com LinkedIn anotada |
 | Python (explorando) | mencionado no briefing inicial | provável — sem evidência pública |

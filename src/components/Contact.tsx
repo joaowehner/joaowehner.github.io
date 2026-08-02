@@ -3,8 +3,6 @@ import CopyButton from './CopyButton'
 import './Contact.css'
 
 export default function Contact() {
-  const linkedin = profile.social.find((s) => s.id === 'linkedin')
-
   return (
     <section className="section container" id="contato" aria-labelledby="contato-titulo">
       <div className="contact">
@@ -14,25 +12,25 @@ export default function Contact() {
         </header>
 
         <p className="contact__text">
-          Projeto, vaga, parceria ou uma ideia para automatizar? A caixa de entrada está aberta —
-          respondo mais rápido por e-mail ou LinkedIn.
+          Projeto, parceria ou uma ideia para automatizar? A caixa de entrada está aberta,
+          respondo mais rápido por WhatsApp ou e-mail.
         </p>
 
         <div className="contact__actions">
-          <a className="contact__cta" href={`mailto:${profile.email}`}>
-            enviar e-mail
-          </a>
-          <CopyButton value={profile.email} label={`copiar ${profile.email}`} />
-          {linkedin && (
+          {profile.whatsappUrl && (
             <a
-              className="contact__secondary"
-              href={linkedin.url}
+              className="contact__cta"
+              href={profile.whatsappUrl}
               target="_blank"
               rel="noopener noreferrer"
             >
-              LinkedIn ↗
+              WhatsApp
             </a>
           )}
+          <a className="contact__secondary" href={`mailto:${profile.email}`}>
+            enviar e-mail
+          </a>
+          <CopyButton value={profile.email} label={`copiar ${profile.email}`} />
         </div>
       </div>
     </section>

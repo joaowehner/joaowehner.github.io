@@ -11,7 +11,7 @@ export default function Footer() {
           <span className="footer__prompt" aria-hidden="true">
             ❯
           </span>
-          {profile.brand} — {year}
+          {profile.brand} &copy; {year}
         </p>
         <p className="footer__item footer__item--muted">
           React · TypeScript · Vite · CSS autoral
@@ -24,7 +24,9 @@ export default function Footer() {
             </>
           )}
         </p>
-        <p className="footer__item footer__item--muted">feito em {profile.location}</p>
+        <p className="footer__item footer__item--muted">
+          Disponível para projetos e parcerias imobiliárias
+        </p>
       </div>
     </footer>
   )
