@@ -1,0 +1,15 @@
+/* ─────────────────────────────────────────────────────────────
+   TerminalPacketTrail — camada fixa do cursor trail.
+   Puramente decorativa: não captura eventos, não entra no fluxo
+   do documento e fica abaixo do nav (--z-nav) e do menu.
+   As cores vêm dos tokens --trail-* lidos pelo Canvas.
+   ───────────────────────────────────────────────────────────── */
+
+.cursor-trail {
+  position: fixed;
+  inset: 0;
+  width: 100%;
+  height: 100%;
+  pointer-events: none;
+  z-index: var(--z-trail);
+}

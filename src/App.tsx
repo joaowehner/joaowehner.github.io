@@ -1,6 +1,7 @@
 import { useState } from 'react'
 import Intro from './components/Intro'
 import { readIntroGate } from './components/introGate'
+import CursorTrail from './components/CursorTrail'
 import TopBar from './components/TopBar'
 import Hero from './components/Hero'
 import About from './components/About'
@@ -27,6 +28,7 @@ export default function App() {
       <a className="skip-link" href="#conteudo">
         Pular para o conteúdo
       </a>
+      <CursorTrail />
       <TopBar />
       <main id="conteudo" tabIndex={-1} inert={intro === 'active' ? true : undefined}>
         <Hero />

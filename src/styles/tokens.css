@@ -25,6 +25,12 @@
   --cyan: #6cb8d6;
   --danger: #e06c75;
 
+  /* Cursor trail (TerminalPacketTrail) */
+  --trail-primary: var(--accent);
+  --trail-secondary: var(--cyan);
+  --trail-interactive: var(--amber);
+  --trail-muted: var(--text-3);
+
   /* Pontos da janela */
   --dot-red: #ff5f56;
   --dot-yellow: #ffbd2e;
@@ -77,6 +83,7 @@
   --t-base: 240ms var(--ease);
 
   /* Camadas */
+  --z-trail: 90;
   --z-nav: 100;
   --z-menu: 200;
 }
