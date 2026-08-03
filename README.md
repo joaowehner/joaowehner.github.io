@@ -1,97 +1,128 @@
-# joaowehner — site pessoal
+# Terminal Portfolio — João Guilherme W. Ricartes
 
-Mini-site pessoal de João Guilherme: portfólio, apresentação profissional, central de
-links e cartão de visitas digital em estética de terminal editorial.
+Aplicação web profissional de portfólio interativo com interface baseada em linha de comando (*Terminal UI*). O projeto combina estética retro-moderna com uma arquitetura de software moderna, performática e modular.
 
-- **Referência visual**: interpretação autoral inspirada em <https://superdesign.dev/library/terminal>
-- **Stack**: Vite · React 19 · TypeScript (strict) · CSS autoral com design tokens
-- **Fontes**: Space Grotesk (texto/títulos) + JetBrains Mono (terminal/código), self-hosted via Fontsource
-- **Deploy**: GitHub Pages via GitHub Actions
+- **Interface Visual**: Design autoral inspirado em ambientes CLI (referência: [superdesign.dev/library/terminal](https://superdesign.dev/library/terminal))
+- **Tech Stack**: Vite · React 19 · TypeScript (Strict Mode) · CSS autoral com Design Tokens
+- **Tipografia**: Space Grotesk (Textos e Títulos) + JetBrains Mono (Terminal e Código), *self-hosted* via `@fontsource`
+- **Automação & CI/CD**: GitHub Actions para testes e deploy automatizado no GitHub Pages
+- **Qualidade & Acessibilidade**: Testes unitários (Vitest) e testes automatizados de regressão visual, interação e acessibilidade (Playwright + axe-core)
 
-## Estrutura
+---
+
+## 📁 Estrutura do Projeto
 
 ```text
-├── index.html                  # metadados, SEO, JSON-LD
-├── public/                    # favicon, og.png, robots.txt, sitemap.xml
+├── index.html                  # Metadados SEO, Open Graph e dados estruturados (JSON-LD)
+├── public/                    # Assets estáticos (Favicon, OG Image, robots.txt, sitemap.xml)
 ├── src/
-│   ├── data/profile.ts        # ★ TODO o conteúdo do site (edite aqui)
-│   ├── styles/tokens.css      # ★ design tokens (cores, tipos, espaçamento)
-│   ├── styles/global.css      # reset, base, utilitários
-│   ├── components/            # TopBar, Hero, Terminal, About, Projects,
-│   │                          # Stack, LinksHub, Contact, Footer, CopyButton
-│   ├── terminal/commands.ts   # lógica pura dos comandos (+ testes)
-│   └── hooks/useActiveSection.ts
-├── scripts/                   # revisão visual/interação/a11y (Playwright)
-└── docs/                      # design-process, content-strategy, deployment
+│   ├── data/profile.ts        # Fonte da verdade dos dados (perfil, projetos, stack e links)
+│   ├── styles/tokens.css      # Design Tokens (variáveis de cor, tipografia e espaçamento)
+│   ├── styles/global.css      # Reset CSS, estilos base e utilitários
+│   ├── components/            # Componentes React (TopBar, Hero, Terminal, Projects, etc.)
+│   ├── terminal/commands.ts   # Motor de execução e lógica pura dos comandos do terminal
+│   └── hooks/useActiveSection.ts # Hook customizado para navegação e estado de seções
+├── scripts/                   # Automação de testes visuais, interação e acessibilidade (Playwright)
+└── docs/                      # Documentação de arquitetura, estratégia e deploy
 ```
 
-## Requisitos
+---
 
-- Node.js 20+ (desenvolvido com 24)
-- npm
+## ⚙️ Pré-requisitos
 
-## Comandos
+- **Node.js**: v20+ (recomendado v24+)
+- **Gerenciador de pacotes**: npm (v10+)
+
+---
+
+## 🚀 Scripts Disponíveis
+
+### Desenvolvimento e Build
 
 ```bash
-npm install        # dependências
-npm run dev        # dev server em http://localhost:5173
-npm run lint       # ESLint
-npm run typecheck  # TypeScript
-npm test           # Vitest (lógica do terminal)
-npm run build      # build de produção em dist/
-npm run preview    # serve o build localmente
+# Instalação das dependências
+npm install
+
+# Inicia o servidor de desenvolvimento (http://localhost:5173)
+npm run dev
+
+# Análise estática de código (ESLint)
+npm run lint
+
+# Checagem estática de tipos (TypeScript)
+npm run typecheck
+
+# Executa os testes unitários (Vitest)
+npm test
+
+# Gera o build otimizado para produção em /dist
+npm run build
+
+# Visualiza o build de produção localmente
+npm run preview
 ```
 
-Scripts de revisão (exigem `npx playwright install chromium`):
+### Scripts de Validação Automatizada (QA)
+
+> *Nota: Requer a instalação dos executáveis do navegador: `npx playwright install chromium`*
 
 ```bash
-node scripts/visual-review.mjs       # screenshots em 9 resoluções + overflow check
-node scripts/interaction-review.mjs  # terminal, menu, navegação, links, clipboard
-node scripts/a11y-review.mjs         # axe-core (WCAG AA)
-node scripts/og-image.mjs            # regenera public/og.png
+# Screenshots de regressão visual em 9 resoluções + checagem de overflow
+node scripts/visual-review.mjs
+
+# Validação de interações (terminal, menus, navegação, clipboard)
+node scripts/interaction-review.mjs
+
+# Teste automatizado de acessibilidade (axe-core / WCAG AA)
+node scripts/a11y-review.mjs
+
+# Regenera a imagem Open Graph (public/og.png)
+node scripts/og-image.mjs
 ```
 
-## Como editar o conteúdo
+---
 
-Tudo vive em [`src/data/profile.ts`](src/data/profile.ts):
+## 📝 Gestão de Conteúdo
 
-- **Textos** (headline, bio, CTAs): campos `headline`, `subheadline`, `about`.
-- **Adicionar projeto**: novo item em `projects` (a seção some se a lista ficar vazia).
-- **Links/redes**: array `social` — `action: 'abrir'` vira botão de link,
-  `action: 'copiar'` vira botão de copiar.
-- **Stack**: grupos em `stack` (principal / experiência prática / explorando).
-- **Currículo**: quando existir um PDF, adicione-o em `public/` e crie um item em
-  `social` apontando para ele.
+Todo o conteúdo exibido na aplicação é orientado a dados e centralizado no arquivo [`src/data/profile.ts`](src/data/profile.ts):
 
-Comandos do terminal: [`src/terminal/commands.ts`](src/terminal/commands.ts) —
-cada comando é um objeto `{ name, description, run }`; rode `npm test` após mudar.
+- **Informações Pessoais & Bio**: Atualize os campos `headline`, `subheadline` e `about`.
+- **Projetos**: Gerenciados no array `projects` (a seção adapta-se dinamicamente caso o array esteja vazio).
+- **Links & Redes Sociais**: Configurados no array `social`, suportando ações de navegação (`action: 'abrir'`) ou cópia para a área de transferência (`action: 'copiar'`).
+- **Comandos do Terminal**: Gerenciados em [`src/terminal/commands.ts`](src/terminal/commands.ts). Cada comando aceita o formato `{ name, description, run }`.
+- **Estilização & Temas**: Altere variáveis globais de design em [`src/styles/tokens.css`](src/styles/tokens.css).
 
-Cores/tipografia/espaçamento: [`src/styles/tokens.css`](src/styles/tokens.css).
+---
 
-## Publicação no GitHub Pages
+## 🌐 Deploy e Publicação
 
-Ver [docs/deployment.md](docs/deployment.md). Resumo:
+Consulte o guia completo em [docs/deployment.md](docs/deployment.md).
 
-1. Crie o repositório **`joaowehner.github.io`** (site principal → URL raiz).
-2. `git remote add origin … && git push -u origin main`.
-3. Em *Settings → Pages*, selecione **GitHub Actions** como source.
-4. O workflow [.github/workflows/deploy.yml](.github/workflows/deploy.yml) roda
-   lint → typecheck → testes → build → deploy a cada push na `main`.
+### Publicação em Repositório GitHub Pages
 
-Para publicar como site de projeto (`joaowehner.github.io/<repo>`), defina
-`VITE_BASE=/<repo>/` no build (comentado no workflow) e ajuste `canonical`,
-`og:url`, `robots.txt` e `sitemap.xml` no `index.html`/`public/`.
+1. Crie o repositório **`joaowehner.github.io`** para deploy na raiz do domínio.
+2. Adicione o remoto e faça o push da branch principal:
+   ```bash
+   git remote add origin git@github.com:joaowehner/joaowehner.github.io.git
+   git push -u origin main
+   ```
+3. Em **Settings → Pages** do repositório, defina a origem (**Source**) como **GitHub Actions**.
+4. O workflow [.github/workflows/deploy.yml](.github/workflows/deploy.yml) executará automaticamente os passos de `lint` $\rightarrow$ `typecheck` $\rightarrow$ `tests` $\rightarrow$ `build` $\rightarrow$ `deploy`.
 
-### Checklist antes de publicar
+*Para publicar como subcaminho (`joaowehner.github.io/<repo>`), configure a variável `VITE_BASE=/<repo>/` durante a etapa de build e ajuste os caminhos canônicos no `index.html`.*
 
-- [ ] Confirmar publicação do e-mail pessoal no site
-- [ ] Validar textos dos 4 projetos TSW
-- [ ] Conferir `siteUrl` em `profile.ts` + canonical/OG no `index.html`
-- [ ] `npm run lint && npm run typecheck && npm test && npm run build` verdes
-- [ ] Testar `npm run preview` localmente
+### Checklist de Release
 
-### Domínio próprio (futuro)
+- [ ] Validar a integridade das informações de contato e links em `src/data/profile.ts`.
+- [ ] Garantir que URLs de metadados (`siteUrl`, Open Graph e Canonical Tags) estejam corretas.
+- [ ] Executar o pipeline de validação local:
+  ```bash
+  npm run lint && npm run typecheck && npm test && npm run build
+  ```
+- [ ] Validar a renderização final com `npm run preview`.
 
-Quando houver domínio: adicione `public/CNAME` com o domínio, configure o DNS
-(CNAME → `joaowehner.github.io`) e atualize canonical/OG/sitemap. Detalhes em
-[docs/deployment.md](docs/deployment.md).
+---
+
+## 📄 Licença
+
+Este projeto é de código aberto sob a licença MIT. Sinta-se à vontade para utilizar a estrutura como base para o seu próprio portfólio.
