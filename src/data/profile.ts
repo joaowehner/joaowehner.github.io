@@ -171,7 +171,7 @@ export const profile: Profile = {
       id: 'principal',
       title: 'principal',
       note: 'uso diário',
-      items: ['HTML & CSS', 'JavaScript', 'APIs REST', 'Git & GitHub', 'Vercel', 'Hostinger', 'Supabase'],
+      items: ['HTML & CSS', 'JavaScript', 'APIs REST', 'Git & GitHub', 'PostgreSQL', 'Cloud & Deploy', 'Hospedagem & Infra'],
     },
     {
       id: 'pratica',
